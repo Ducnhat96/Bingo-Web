@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #71a504;
+  --color-primary-75: #71a504bf;
+  --color-primary-50: #71a50480;
+  --color-primary-25: #71a50440;
+  --color-primary-5: #71a5040d;
+  --color-accent: #eed090;
+  --color-table: #f9edd4;
+  --color-information: #0081c9;
+  --color-success: #2db986;
+  --color-dangerous: #ff3a3a;
+  --color-attention: #ff7a00;
+  --color-warning: #f0bb00;
+  --color-white: #f4f9f7;
+  --color-black: #080c01;
+  --color-subtitle: #3e4b46;
+  --color-mute: #7b8581;
+  --color-middle: #b7bfbc;
+  --color-mono-alternate: #82857d;
+  --color-mono-primary: #fdfff8;
+  --color-secondary: #45493f;
+  --color-primary-shadow: #36705a66;
+
+  --font-headline-medium-weight: 300;
+  --font-header-1-size: 28px;
+  --font-headline-medium-line-height: 36px;
+
+  --font-body-medium-weight: 300;
+  --font-body-medium-size: 20px;
+  --font-body-medium-line-height: 20px;
+  --font-body-medium-letter-spacing: 0.25px;
+
+  --font-header-large-weight: 300;
+  --font-header-large-size: 32px;
+  --font-header-large-line-height: 40px;
+
+  --font-title-medium-weight: 400;
+  --font-title-medium-size: 16px;
+  --font-title-medium-line-height: 24px;
+  --font-title-medium-letter-spacing: 0.15px;
+
+  --font-title-small-weight: 400;
+  --font-title-small-size: 14px;
+  --font-title-small-line-height: 20px;
+  --font-title-small-letter-spacing: 0.1px;
+
+  --font-label-small-weight: 300;
+  --font-label-small-size: 11px;
+  --font-label-small-line-height: 16px;
+  --font-label-small-letter-spacing: 0.5px;
+
+  --font-header-4-weight: 600;
+  --font-header-4-size: 24px;
+  --font-header-4-line-height: 36px;
+
+  --font-header-5-weight: 600;
+  --font-header-5-size: 20px;
+  --font-header-5-line-height: 30px;
+
+  --font-body-1-weight: 600;
+  --font-body-1-size: 16px;
+  --font-body-1-line-height: 24px;
+
+  --font-body-1b-weight: 700;
+  --font-body-1b-size: 16px;
+  --font-body-1b-line-height: 24px;
+
+  --font-body-1r-weight: 400;
+  --font-body-1r-size: 16px;
+  --font-body-1r-line-height: 24px;
+
+  --font-body-1word-weight: 500;
+  --font-body-1word-size: 16px;
+  --font-body-1word-line-height: 32px;
+
+  --font-body-2-weight: 600;
+  --font-body-2-size: 14px;
+  --font-body-2-line-height: 20px;
+
+  --font-body-2b-weight: 700;
+  --font-body-2b-size: 14px;
+  --font-body-2b-line-height: 20px;
+
+  --font-body-2r-weight: 500;
+  --font-body-2r-size: 14px;
+  --font-body-2r-line-height: 20px;
+
+  --font-body-2word-weight: 500;
+  --font-body-2word-size: 14px;
+  --font-body-2word-line-height: 28px;
+
+  --font-subtitle-1-weight: 600;
+  --font-subtitle-1-size: 12px;
+  --font-subtitle-1-line-height: 20px;
+
+  --font-subtitle-2-weight: 500;
+  --font-subtitle-2-size: 12px;
+  --font-subtitle-2-line-height: 20px;
+
+  --font-subtitle-3-weight: 400;
+  --font-subtitle-3-size: 12px;
+  --font-subtitle-3-line-height: 14px;
+
+  --font-button-weight: 600;
+  --font-button-size: 14px;
+  --font-button-line-height: 24px;
+}
+
+body {
+  color: var(--color-black);
+  background-color: var(--color-primary);
+  font-family: var(--font-nunito-sans);
+}
+
+@layer utilities {
+  .app-text-headline-medium {
+    font-weight: var(--font-headline-medium-weight);
+    font-size: var(--font-header-1-size);
+    line-height: var(--font-headline-medium-line-height);
+  }
+
+  .app-text-body-medium {
+    font-weight: var(--font-body-medium-weight);
+    font-size: var(--font-body-medium-size);
+    line-height: var(--font-body-medium-line-height);
+    letter-spacing: var(--font-body-medium-letter-spacing);
+  }
+
+  .app-text-header-large {
+    font-weight: var(--font-header-large-weight);
+    font-size: var(--font-header-large-size);
+    line-height: var(--font-header-large-line-height);
+  }
+  .app-text-title-medium {
+    font-weight: var(--font-title-medium-weight);
+    font-size: var(--font-title-medium-size);
+    line-height: var(--font-title-medium-line-height);
+    letter-spacing: var(--font-title-medium-letter-spacing);
+  }
+
+  .app-text-title-small {
+    font-weight: var(--font-title-small-weight);
+    font-size: var(--font-title-small-size);
+    line-height: var(--font-title-small-line-height);
+    letter-spacing: var(--font-title-small-letter-spacing);
+  }
+
+  .app-text-label-small {
+    font-weight: var(--font-label-small-weight);
+    font-size: var(--font-label-small-size);
+    line-height: var(--font-label-small-line-height);
+    letter-spacing: var(--font-label-small-letter-spacing);
+  }
+
+  .app-text-header-4 {
+    font-weight: var(--font-header-4-weight);
+    font-size: var(--font-header-4-size);
+    line-height: var(--font-header-4-line-height);
+  }
+
+  .app-text-header-5 {
+    font-weight: var(--font-header-5-weight);
+    font-size: var(--font-header-5-size);
+    line-height: var(--font-header-5-line-height);
+  }
+
+  .app-text-body-1 {
+    font-weight: var(--font-body-1-weight);
+    font-size: var(--font-body-1-size);
+    line-height: var(--font-body-1-line-height);
+  }
+
+  .app-text-body-1b {
+    font-weight: var(--font-body-1b-weight);
+    font-size: var(--font-body-1b-size);
+    line-height: var(--font-body-1b-line-height);
+  }
+
+  .app-text-body-1r {
+    font-weight: var(--font-body-1r-weight);
+    font-size: var(--font-body-1r-size);
+    line-height: var(--font-body-1r-line-height);
+  }
+
+  .app-text-body-1word {
+    font-weight: var(--font-body-1word-weight);
+    font-size: var(--font-body-1word-size);
+    line-height: var(--font-body-1word-line-height);
+  }
+
+  .app-text-body-2 {
+    font-weight: var(--font-body-2-weight);
+    font-size: var(--font-body-2-size);
+    line-height: var(--font-body-2-line-height);
+  }
+
+  .app-text-body-2b {
+    font-weight: var(--font-body-2b-weight);
+    font-size: var(--font-body-2b-size);
+    line-height: var(--font-body-2b-line-height);
+  }
+
+  .app-text-body-2r {
+    font-weight: var(--font-body-2r-weight);
+    font-size: var(--font-body-2r-size);
+    line-height: var(--font-body-2r-line-height);
+  }
+
+  .app-text-body-2word {
+    font-weight: var(--font-body-2word-weight);
+    font-size: var(--font-body-2word-size);
+    line-height: var(--font-body-2word-line-height);
+  }
+
+  .app-text-subtitle-1 {
+    font-weight: var(--font-subtitle-1-weight);
+    font-size: var(--font-subtitle-1-size);
+    line-height: var(--font-subtitle-1-line-height);
+  }
+
+  .app-text-subtitle-2 {
+    font-weight: var(--font-subtitle-2-weight);
+    font-size: var(--font-subtitle-2-size);
+    line-height: var(--font-subtitle-2-line-height);
+  }
+
+  .app-text-subtitle-3 {
+    font-weight: var(--font-subtitle-3-weight);
+    font-size: var(--font-subtitle-3-size);
+    line-height: var(--font-subtitle-3-line-height);
+  }
+
+  .app-text-button {
+    font-weight: var(--font-button-weight);
+    font-size: var(--font-button-size);
+    line-height: var(--font-button-line-height);
+  }
+
+  .app-input-focus {
+    box-shadow: 0px 0px 15px 0px var(--color-primary-shadow);
+    border-image-source: linear-gradient(263.92deg, #c1e988 0%, #71a504 100%);
+  }
+}
