@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Rowdies } from "next/font/google";
-import clsx from "clsx";
 import Providers from "./provider";
-
-const rowdies = Rowdies({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Avacus - DeBingo",
@@ -18,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={clsx(rowdies.className, "bg-home bg-cover")}>
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>
