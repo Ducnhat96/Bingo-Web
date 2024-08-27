@@ -7,7 +7,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|ripple|spinner).js"
+    "./node_modules/@nextui-org/theme/dist/components/(button|ripple|spinner).js",
   ],
   theme: {
     extend: {
@@ -33,7 +33,6 @@ const config: Config = {
         "mono-alternate": "var(--color-mono-alternate)",
         "mono-primary": "var(--color-mono-primary)",
         secondary: "var(--color-secondary)",
-        alternate: "var(--color-alternate)",
       },
       backgroundImage: {
         home: "url('/images/home-background.svg')",

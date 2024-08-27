@@ -1,7 +1,17 @@
-import { http, createConfig } from 'wagmi'
-import { arbitrum, bsc, Chain, evmos, mainnet, okc, optimism, polygon, sepolia } from 'wagmi/chains'
+import { http, createConfig } from "wagmi";
+import {
+  arbitrum,
+  bsc,
+  Chain,
+  evmos,
+  mainnet,
+  okc,
+  optimism,
+  polygon,
+  sepolia,
+} from "wagmi/chains";
 
-const supportedChains: readonly [Chain, ...Chain[]] = [
+export const supportedChains: readonly [Chain, ...Chain[]] = [
   mainnet,
   polygon,
   optimism,
@@ -9,9 +19,8 @@ const supportedChains: readonly [Chain, ...Chain[]] = [
   bsc,
   evmos,
   okc,
-  sepolia
-]
-
+  sepolia,
+];
 
 export const web3Config = createConfig({
   chains: supportedChains,
@@ -19,4 +28,4 @@ export const web3Config = createConfig({
     [mainnet.id]: http(),
     [sepolia.id]: http(),
   },
-})
+});

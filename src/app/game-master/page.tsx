@@ -1,5 +1,5 @@
 import { GameMasterProvider } from "@/context/GameMasterProvider";
-import GameMasterContainer from "../containers/game-master";
+import GameMasterContainer from "../../containers/game-master";
 
 export default function GameMasterPage() {
   return (

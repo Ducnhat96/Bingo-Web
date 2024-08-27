@@ -4,5 +4,18 @@ import BgCountDownTime from "./countdown-time-background.svg";
 import ImgNumberRandom from "./img-number-random.svg";
 import ImgHomeHero from "./home-hero-image.svg";
 import AvacusLogo from "./avacus-logo.svg";
+import ImgTwoSticks from "./img-two-sticks.svg";
+import BgOverlayModal from "./bg-overlay-modal.svg";
+import ImgEndGame from "./img-end-game.svg";
 
-export { BgHome, BgGame, BgCountDownTime, ImgNumberRandom, ImgHomeHero, AvacusLogo };
+export {
+  BgHome,
+  BgGame,
+  BgCountDownTime,
+  ImgNumberRandom,
+  ImgHomeHero,
+  AvacusLogo,
+  ImgTwoSticks,
+  BgOverlayModal,
+  ImgEndGame,
+};

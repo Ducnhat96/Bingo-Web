@@ -12,8 +12,8 @@
   --color-table: #f9edd4;
   --color-information: #0081c9;
   --color-success: #2db986;
-  --color-dangerous: #ff3a3a;
-  --color-attention: #ff7a00;
+  --color-dangerous: #fb384d;
+  --color-attention: #f29600;
   --color-warning: #f0bb00;
   --color-warning-25: #f0bb0025;
   --color-white: #fdfff8;
@@ -29,6 +29,9 @@
   --font-display-small-weight: 300;
   --font-display-small-size: 36px;
   --font-display-small-line-height: 44px;
+
+  --font-display-medium-size: 45px;
+  --font-display-medium-line-height: 36px;
 
   --font-headline-medium-weight: 300;
   --font-header-1-size: 28px;
@@ -50,10 +53,6 @@
   --font-body-medium-size: 14px;
   --font-body-medium-line-height: 20px;
   --font-body-medium-letter-spacing: 0.25px;
-
-  --font-body-small-weight: 300;
-  --font-body-small-size: 12px;
-  --font-body-small-line-height: 16px;
 
   --font-header-large-weight: 300;
   --font-header-large-size: 32px;
@@ -141,7 +140,6 @@
 
 body {
   color: var(--color-black);
-  /* background-color: var(--color-primary); */
   font-family: var(--font-nunito-sans);
 }
 
@@ -150,11 +148,54 @@ button:focus {
   outline: none;
 }
 
+.rowdies-light {
+  font-family: "Rowdies", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.rowdies-regular {
+  font-family: "Rowdies", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rowdies-bold {
+  font-family: "Rowdies", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.customModal {
+  background: transparent !important;
+  min-width: 500px;
+  width: 100%;
+  box-shadow: none !important;
+}
+.customOverlay {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.customBgOverlay {
+  background-size: 100% !important;
+  background-image: url("/images/bg-overlay-modal.svg") !important;
+}
+
 @layer utilities {
   .app-text-display-small {
     font-weight: var(--font-display-small-weight);
     font-size: var(--font-display-small-size);
     line-height: var(--font-display-small-line-height);
+  }
+  .app-text-display-medium {
+    font-weight: var(--font-label-medium-weight);
+    font-size: var(--font-display-medium-size);
+    line-height: var(--font-display-medium-line-height);
+  }
+
+  .app-text-headline-large {
+    font-weight: var(--font-body-1r-weight);
+    font-size: var(--font-header-large-size);
+    line-height: var(--font-header-large-line-height);
   }
 
   .app-text-headline-medium {
@@ -199,7 +240,6 @@ button:focus {
     font-size: var(--font-header-large-size);
     line-height: var(--font-header-large-line-height);
   }
-
   .app-text-title-medium {
     font-weight: var(--font-title-medium-weight);
     font-size: var(--font-title-medium-size);

@@ -7,6 +7,7 @@ import React, { type FC } from "react";
 import { WagmiProvider } from "wagmi";
 import { Rowdies } from "next/font/google";
 import { usePathname } from "next/navigation";
+import { AuthProvider } from "@/context/AuthProvider";
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -27,7 +28,9 @@ const Providers: FC<ProvidersProps> = ({ children }) => {
     <NextUIProvider>
       <WagmiProvider config={web3Config}>
         <QueryClientProvider client={queryClient}>
-          <div className={clsx(rowdies.className, classes)}>{children}</div>
+          <div className={clsx(rowdies.className, classes)}>
+            <AuthProvider>{children}</AuthProvider>
+          </div>
         </QueryClientProvider>
       </WagmiProvider>
     </NextUIProvider>

@@ -1,3 +1,5 @@
+import { SiweMessage } from "siwe";
+
 export const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
 export const MULTI_AVATAR_KEY = process.env.NEXT_PUBLIC_MULTI_AVATAR_KEY;
 

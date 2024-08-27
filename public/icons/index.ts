@@ -16,6 +16,7 @@ import IcGameCreateNft from "./ic-gamecreate-nft.svg";
 import IcGameCreateCalendar from "./ic-gamecreate-calendar.svg";
 import IcGameCreateClose from "./ic-gamecreate-close.svg";
 import IcSearch from "./ic-search.svg";
+import IcAvacusLogo from "./ic-avacus-logo.svg";
 
 export {
   IcUser,
@@ -36,4 +37,5 @@ export {
   IcGameCreateCalendar,
   IcGameCreateClose,
   IcSearch,
+  IcAvacusLogo,
 };

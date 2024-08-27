@@ -9,6 +9,8 @@ interface GameMater {
   lastFiveNumbers: number[];
   allActiveNumbers: number[];
   getRandomNumber: () => void;
+  isEndGame: boolean;
+  setIsEndGame: (isEndGame: boolean) => void;
 }
 
 interface GameMaterProviderProps {
@@ -20,6 +22,8 @@ const GameMaterContext = createContext<GameMater>({
   lastFiveNumbers: [],
   allActiveNumbers: [],
   getRandomNumber: () => {},
+  isEndGame: false,
+  setIsEndGame: () => {},
 });
 
 export const GameMasterProvider = ({
@@ -28,6 +32,7 @@ export const GameMasterProvider = ({
   const [currentNumber, setCurrentNumber] = useState<number | null>(null);
   const [lastFiveNumbers, setLastFiveNumbers] = useState<number[]>([]);
   const [allActiveNumbers, setAllActiveNumbers] = useState<number[]>([]);
+  const [isEndGame, setIsEndGame] = useState<boolean>(false);
 
   const getRandomNumber = () => {
     const allInactiveNumbers = allNumbers.filter(
@@ -39,6 +44,8 @@ export const GameMasterProvider = ({
       setAllActiveNumbers((prev) => [...prev, newNumber]);
       setCurrentNumber(newNumber);
       setLastFiveNumbers((prev) => [newNumber, ...prev.slice(0, 4)]);
+    } else {
+      setIsEndGame(true);
     }
   };
 
@@ -49,6 +56,8 @@ export const GameMasterProvider = ({
         lastFiveNumbers,
         allActiveNumbers,
         getRandomNumber,
+        isEndGame,
+        setIsEndGame,
       }}
     >
       {children}

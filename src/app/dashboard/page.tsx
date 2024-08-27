@@ -1,7 +1,5 @@
-import DashboardContainer from "../containers/dashboard";
+import DashboardContainer from "../../containers/dashboard";
 
 export default function DashboardPage() {
-  return (
-    <DashboardContainer />
-  );
+  return <DashboardContainer />;
 }

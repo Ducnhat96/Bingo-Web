@@ -1,34 +1,44 @@
-import { Button } from '@nextui-org/react'
-import React, { FC } from 'react'
-import { useAccount, useConnect, useDisconnect } from 'wagmi'
-import { injected } from 'wagmi/connectors'
-import { addressShorten } from '../../../utils'
+"use client";
+import { Button } from "@nextui-org/react";
+import { FC } from "react";
+import { useAccount } from "wagmi";
+import { useAuth } from "@/context/AuthProvider";
+import { addressShorten } from "../../../utils";
+import ButtonCommon from "../Button";
+import Image from "next/image";
+import { IcAvacusLogo } from "../../../public/icons";
 
-type Props = {}
+const ConnectWallet: FC = () => {
+  const { authToken, connectWallet, disconnectWallet } = useAuth();
+  const { isConnected, address, isConnecting } = useAccount();
 
-const ConnectWallet: FC<Props> = (props) => {
-  const { connect } = useConnect()
-  const { disconnect } = useDisconnect()
-  const { isConnected, address, isConnecting } = useAccount()
+  const isLoading = isConnecting || (isConnected && !authToken);
 
-  if (isConnected && address) return (
-    <Button
-      color="primary"
-      onClick={() => disconnect()}
-    >
-      {addressShorten(address)}
-    </Button>
-  )
+  if (isConnected && address && authToken)
+    return (
+      <Button
+        color="primary"
+        onClick={() => {
+          disconnectWallet();
+        }}
+      >
+        {addressShorten(address)}
+      </Button>
+    );
 
   return (
-    <Button
-      color="primary"
-      onClick={() => connect({ connector: injected() })}
-      isLoading={isConnecting}
-    >
-      Connect Wallet
-    </Button>
-  )
-}
+    <div>
+      <ButtonCommon
+        title="Connect Avacus Wallet"
+        btnClass="w-fit bg-attention flex-row justify-center items-center"
+        onClick={() => connectWallet()}
+        isLoading={isLoading}
+        startContent={
+          isLoading ? null : <Image src={IcAvacusLogo} alt="avacus" />
+        }
+      />
+    </div>
+  );
+};
 
-export default ConnectWallet
+export default ConnectWallet;

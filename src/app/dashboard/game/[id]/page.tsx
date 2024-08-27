@@ -1,6 +1,3 @@
-import StatusBadge, {
-  EGameStatus,
-} from "@/app/containers/dashboard/StatusBadge";
 import React from "react";
 import {
   IcGameEdit,
@@ -10,8 +7,9 @@ import {
 } from "../../../../../public/icons";
 import Image from "next/image";
 import { addressShorten } from "../../../../../utils";
-import ListOfPlayers from "@/app/containers/dashboard/ListOfPlayers";
 import DashboardButton from "@/components/DashboardButton";
+import StatusBadge, { EGameStatus } from "@/containers/dashboard/StatusBadge";
+import ListOfPlayers from "@/containers/dashboard/ListOfPlayers";
 
 interface GameDetailParams {
   id: string;
@@ -166,17 +164,14 @@ const GameDetail: React.FC<GameDetailProps> = async ({ params }) => {
               Edit
             </div>
           </div>
-          <DashboardButton
-            title="Open The Game"
-            containerClasses="w-fit"
-          />
+          <DashboardButton title="Open The Game" containerClasses="w-fit" />
         </div>
       );
     }
 
     if (gameStatus === EGameStatus.AWAIT_DISTRIBUTE) {
       return (
-        <div className="flex justify-end w-full">
+        <div className="flex w-full justify-end">
           <DashboardButton
             title="Distribute Rewards"
             containerClasses="w-fit"

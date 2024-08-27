@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "react-responsive-modal/styles.css";
 import Providers from "./provider";
 
 export const metadata: Metadata = {

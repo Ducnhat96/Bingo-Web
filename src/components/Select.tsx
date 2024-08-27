@@ -50,4 +50,4 @@ const Select = <T extends object>({
   );
 };
 
-export default Select
+export default Select;

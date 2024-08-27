@@ -1,18 +1,27 @@
+"use client";
+
+import ChainListDropdown from "@/components/ChainListDropdown";
+
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <section id="dashboard_container" className="relative h-screen max-h-full w-screen flex flex-col bg-white">
-      <div className="fixed top-0 left-0 right-0 flex w-full gap-14 px-containerDesktop container mx-auto items-center justify-between bg-white z-10 h-[80px]">
-        <div className="flex-1 app-text-headline-small text-primary">Game Master Dashboard</div>
-        <div>icon</div>
+    <section
+      id="dashboard_container"
+      className="relative flex h-screen max-h-full w-screen flex-col bg-white"
+    >
+      <div className="container fixed left-0 right-0 top-0 z-10 mx-auto flex h-[80px] w-full items-center justify-between gap-14 bg-white px-containerDesktop">
+        <div className="app-text-headline-small flex-1 text-primary">
+          Game Master Dashboard
+        </div>
+        <ChainListDropdown />
         <div>User</div>
       </div>
-      <div className="fixed top-[81px] left-0 right-0 border-[1px] border-[#F1F3EC]"></div>
+      <div className="fixed left-0 right-0 top-[81px] border-[1px] border-[#F1F3EC]"></div>
 
-      <div className="flex-1 py-[4rem] container mx-auto flex items-center justify-center">
+      <div className="container mx-auto flex flex-1 items-center justify-center py-[4rem]">
         {children}
       </div>
     </section>

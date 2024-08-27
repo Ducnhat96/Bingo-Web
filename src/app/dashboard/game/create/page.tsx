@@ -1,7 +1,7 @@
-import GameCreationForm from "@/app/containers/dashboard/GameCreationForm";
-import RewardSetting from "@/app/containers/dashboard/RewardSetting";
+import GameCreationForm from "@/containers/dashboard/GameCreationForm";
+import RewardSetting from "@/containers/dashboard/RewardSetting";
 import React from "react";
-import { CloseNewGameScreenBtn } from "@/app/containers/dashboard/CreateNewGameBtn";
+import { CloseNewGameScreenBtn } from "@/containers/dashboard/CreateNewGameBtn";
 
 const GameCreate: React.FC = async () => {
   return (
