@@ -18,8 +18,6 @@ const rowdies = Rowdies({ subsets: ["latin"], weight: "400" });
 const Providers: FC<ProvidersProps> = ({ children }) => {
   const pathname = usePathname();
 
-  console.log('pathname', pathname)
-
   const classes = clsx({
     "bg-home bg-cover bg-primary": pathname !== "/dashboard",
     "bg-white": pathname === "/dashboard"

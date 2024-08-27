@@ -4,7 +4,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="relative h-screen max-h-full w-screen flex flex-col bg-white">
+    <section id="dashboard_container" className="relative h-screen max-h-full w-screen flex flex-col bg-white">
       <div className="fixed top-0 left-0 right-0 flex w-full gap-14 px-containerDesktop container mx-auto items-center justify-between bg-white z-10 h-[80px]">
         <div className="flex-1 app-text-headline-small text-primary">Game Master Dashboard</div>
         <div>icon</div>
