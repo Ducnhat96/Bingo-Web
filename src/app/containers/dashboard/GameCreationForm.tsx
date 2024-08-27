@@ -88,7 +88,7 @@ const GameCreationForm = () => {
             handleChange("gameTitle", e.target.value);
           }}
           customCounter={
-            <div className="app-text-body-medium text-alternate">
+            <div className="app-text-body-medium text-mono-alternate">
               {formData.gameTitle.trim().length}/{GAME_TITLE_MAX_CHAR}{" "}
               characters
             </div>

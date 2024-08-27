@@ -19,6 +19,7 @@ import {
   IcGameTrash,
 } from "../../../../public/icons";
 import StatusBadge, { EGameStatus } from "./StatusBadge";
+import { useRouter } from "next/navigation";
 
 type Game = {
   id: number;
@@ -38,6 +39,7 @@ type Game = {
 const columnHelper = createColumnHelper<Game>();
 
 export default function BingoList({ games }: { games: Game[] }) {
+  const router = useRouter();
   const columns = [
     columnHelper.accessor("title", {
       header: () => <div className="text-left">Game Title</div>,
@@ -139,8 +141,18 @@ export default function BingoList({ games }: { games: Game[] }) {
         const id = row.original.id;
         return (
           <div className="flex items-center gap-3">
-            <Image src={IcGameInfo} alt="info" className="cursor-pointer" />
-            <Image src={IcGameEdit} alt="edit" className="cursor-pointer" />
+            <Image
+              src={IcGameInfo}
+              alt="info"
+              className="cursor-pointer"
+              onClick={() => router.push(`/dashboard/game/${id}`)}
+            />
+            <Image
+              src={IcGameEdit}
+              alt="edit"
+              className="cursor-pointer"
+              onClick={() => router.push(`/dashboard/game/${id}/edit`)}
+            />
             <Image src={IcGameTrash} alt="trash" className="cursor-pointer" />
           </div>
         );

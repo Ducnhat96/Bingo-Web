@@ -14,7 +14,8 @@ import IcGameReward from "./ic-game-reward.svg";
 import IcSelectArrowDown from "./ic-select-arrow-down.svg";
 import IcGameCreateNft from "./ic-gamecreate-nft.svg";
 import IcGameCreateCalendar from "./ic-gamecreate-calendar.svg";
-import IcGameCreateClose from "./ic-gamecreate-close.svg"
+import IcGameCreateClose from "./ic-gamecreate-close.svg";
+import IcSearch from "./ic-search.svg";
 
 export {
   IcUser,
@@ -33,5 +34,6 @@ export {
   IcSelectArrowDown,
   IcGameCreateNft,
   IcGameCreateCalendar,
-  IcGameCreateClose
+  IcGameCreateClose,
+  IcSearch,
 };

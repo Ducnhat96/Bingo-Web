@@ -30,7 +30,7 @@ const StatusBadge = ({
   return (
     <div
       className={clsx(
-        "app-text-label-medium rounded-2xl px-3 py-1 w-fit",
+        "app-text-label-medium rounded-2xl px-3 py-1 w-fit h-fit",
         textClasses
       )}
     >
