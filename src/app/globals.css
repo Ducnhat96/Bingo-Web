@@ -15,6 +15,7 @@
   --color-dangerous: #ff3a3a;
   --color-attention: #ff7a00;
   --color-warning: #f0bb00;
+  --color-warning-25: #f0bb0025;
   --color-white: #f4f9f7;
   --color-black: #080c01;
   --color-subtitle: #3e4b46;
@@ -24,10 +25,27 @@
   --color-mono-primary: #fdfff8;
   --color-secondary: #45493f;
   --color-primary-shadow: #36705a66;
+  --color-alternate: #82857D;
+
+  --font-display-small-weight: 300;
+  --font-display-small-size: 36px;
+  --font-display-small-line-height: 44px;
 
   --font-headline-medium-weight: 300;
   --font-header-1-size: 28px;
   --font-headline-medium-line-height: 36px;
+
+  --font-headline-small-weight: 300;
+  --font-headline-small-size: 24px;
+  --font-headline-small-line-height: 32px;
+
+  --font-body-large-weight: 400;
+  --font-body-large-size: 16px;
+  --font-body-large-line-height: 24px;
+
+  --font-title-medium-weight: 500;
+  --font-title-medium-size: 16;
+  --font-title-medium-line-height: 24;
 
   --font-body-medium-weight: 300;
   --font-body-medium-size: 20px;
@@ -47,6 +65,14 @@
   --font-title-small-size: 14px;
   --font-title-small-line-height: 20px;
   --font-title-small-letter-spacing: 0.1px;
+
+  --font-label-large-weight: 400;
+  --font-label-large-size: 14px;
+  --font-label-large-line-height: 20px;
+
+  --font-label-medium-weight: 400;
+  --font-label-medium-size: 12px;
+  --font-label-medium-line-height: 16px;
 
   --font-label-small-weight: 300;
   --font-label-small-size: 11px;
@@ -112,15 +138,44 @@
 
 body {
   color: var(--color-black);
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
   font-family: var(--font-nunito-sans);
 }
 
+input:focus,
+button:focus {
+    outline: none;
+}
+
 @layer utilities {
+  .app-text-display-small {
+    font-weight: var(--font-display-small-weight);
+    font-size: var(--font-display-small-size);
+    line-height: var(--font-display-small-line-height);
+  }
+
   .app-text-headline-medium {
     font-weight: var(--font-headline-medium-weight);
     font-size: var(--font-header-1-size);
     line-height: var(--font-headline-medium-line-height);
+  }
+
+  .app-text-headline-small {
+    font-weight: var(--font-headline-small-weight);
+    font-size: var(--font-headline-small-size);
+    line-height: var(--font-headline-small-line-height);
+  }
+
+  .app-text-body-large {
+    font-weight: var(--font-body-large-weight);
+    font-size: var(--font-body-large-size);
+    line-height: var(--font-body-large-line-height);
+  }
+
+  .app-text-title-medium {
+    font-weight: var(--font-title-medium-weight);
+    font-size: var(--font-title-medium-size);
+    line-height: var(--font-title-medium-line-height);
   }
 
   .app-text-body-medium {
@@ -147,6 +202,18 @@ body {
     font-size: var(--font-title-small-size);
     line-height: var(--font-title-small-line-height);
     letter-spacing: var(--font-title-small-letter-spacing);
+  }
+
+  .app-text-label-large {
+    font-weight: var(--font-label-large-weight);
+    font-size: var(--font-label-large-size);
+    line-height: var(--font-label-large-line-height);
+  }
+
+  .app-text-label-medium {
+    font-weight: var(--font-label-medium-weight);
+    font-size: var(--font-label-medium-size);
+    line-height: var(--font-label-medium-line-height);
   }
 
   .app-text-label-small {
