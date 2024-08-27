@@ -18,20 +18,16 @@ const rowdies = Rowdies({ subsets: ["latin"], weight: "400" });
 const Providers: FC<ProvidersProps> = ({ children }) => {
   const pathname = usePathname();
 
-  console.log('pathname', pathname)
-
   const classes = clsx({
     "bg-home bg-cover bg-primary": pathname !== "/dashboard",
-    "bg-white": pathname === "/dashboard"
+    "bg-white": pathname === "/dashboard",
   });
 
   return (
     <NextUIProvider>
       <WagmiProvider config={web3Config}>
         <QueryClientProvider client={queryClient}>
-          <div className={clsx(rowdies.className, classes)}>
-            {children}
-          </div>
+          <div className={clsx(rowdies.className, classes)}>{children}</div>
         </QueryClientProvider>
       </WagmiProvider>
     </NextUIProvider>

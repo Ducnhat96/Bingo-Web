@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { numbersMap } from "../../../../utils/number";
 import { Square, Circle } from "@/components";
 import { useGameMater } from "@/context/GameMasterProvider";

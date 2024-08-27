@@ -75,7 +75,7 @@ export default function BingoList({ games }: { games: Game[] }) {
             >
               {info.getValue().title}
             </p>
-            <p className="app-text-label-medium text-alternate text-left">
+            <p className="app-text-label-medium text-left text-mono-alternate">
               {addressShorten(info.getValue().address)}
             </p>
           </div>
@@ -126,9 +126,9 @@ export default function BingoList({ games }: { games: Game[] }) {
       cell: (info) => (
         <div className="flex items-center justify-center">
           <StatusBadge
-          text={info.getValue()}
-          colorScheme={info.row.original.colorScheme}
-        />
+            text={info.getValue()}
+            colorScheme={info.row.original.colorScheme}
+          />
         </div>
       ),
     }),
@@ -157,12 +157,12 @@ export default function BingoList({ games }: { games: Game[] }) {
   return (
     <table className="mt-[30px] w-full table-auto border-collapse">
       <thead>
-        {table.getHeaderGroups().map((headerGroup) => (
+        {table.getHeaderGroups().map((headerGroup: any) => (
           <tr
             key={headerGroup.id}
-            className="app-text-label-medium text-alternate"
+            className="app-text-label-medium text-mono-alternate"
           >
-            {headerGroup.headers.map((header) => (
+            {headerGroup.headers.map((header: any) => (
               <th key={header.id} className="px-4 py-2">
                 {flexRender(
                   header.column.columnDef.header,
