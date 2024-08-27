@@ -4,6 +4,7 @@ import BingoList from "./BingoList";
 import DashboardButton from "@/components/DashboardButton";
 import { IcPlus } from "../../../../public/icons";
 import { EGameStatus } from "./StatusBadge";
+import { CreateNewGameBtn } from "./CreateNewGameBtn";
 
 const DashboardContainer: FC = () => {
   const user = true;
@@ -72,12 +73,7 @@ const DashboardContainer: FC = () => {
             <span className="app-text-body-large text-secondary">8 Games</span>
           </p>
         </div>
-        <DashboardButton
-          title="Create New Game"
-          icon={IcPlus}
-          iconAlt="create"
-          containerClasses="h-fit"
-        />
+        <CreateNewGameBtn />
       </div>
       <BingoList games={games} />
     </div>

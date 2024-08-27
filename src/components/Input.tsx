@@ -5,16 +5,24 @@ import {
 import clsx from "clsx";
 import React from "react";
 
-interface InputProps extends NextUIInputProps {}
+interface InputProps extends NextUIInputProps {
+  customCounter?: React.ReactNode;
+}
 
 const Input: React.FC<InputProps> = ({
   label,
   classNames,
+  customCounter,
   ...props
 }) => {
   return (
-    <div className="space-y-2 w-full">
-      <div className="app-text-body-1 text-white">{label}</div>
+    <div className="w-full space-y-2">
+      <div className="flex items-center gap-4">
+        <div className={clsx("app-text-body-1", classNames?.label)}>
+          {label}
+        </div>
+        {customCounter}
+      </div>
       <NextUIInput
         label=""
         variant="bordered"

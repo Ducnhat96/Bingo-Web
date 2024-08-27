@@ -12,6 +12,10 @@ import IcGameTime from "./ic-game-time.svg";
 import IcGamePlayer from "./ic-game-player.svg";
 import IcGameReward from "./ic-game-reward.svg";
 import IcSelectArrowDown from "./ic-select-arrow-down.svg";
+import IcGameCreateNft from "./ic-gamecreate-nft.svg";
+import IcGameCreateCalendar from "./ic-gamecreate-calendar.svg";
+import IcGameCreateClose from "./ic-gamecreate-close.svg";
+import IcSearch from "./ic-search.svg";
 
 export {
   IcUser,
@@ -28,4 +32,8 @@ export {
   IcGamePlayer,
   IcGameReward,
   IcSelectArrowDown,
+  IcGameCreateNft,
+  IcGameCreateCalendar,
+  IcGameCreateClose,
+  IcSearch,
 };

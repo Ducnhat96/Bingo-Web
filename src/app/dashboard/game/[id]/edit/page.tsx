@@ -3,12 +3,12 @@ import RewardSetting from "@/app/containers/dashboard/RewardSetting";
 import React from "react";
 import { CloseNewGameScreenBtn } from "@/app/containers/dashboard/CreateNewGameBtn";
 
-const GameCreate: React.FC = async () => {
+const GameEdit: React.FC = async () => {
   return (
     <div className="container mx-auto mt-28 h-full bg-white px-containerDesktop">
       <div className="mb-4 flex">
         <div className="mb-4 flex w-full justify-between">
-          <h1 className="app-text-display-small">Create New Game</h1>
+          <h1 className="app-text-display-small">Edit Game</h1>
           <CloseNewGameScreenBtn />
         </div>
       </div>
@@ -27,11 +27,11 @@ const GameCreate: React.FC = async () => {
         </div>
 
         <button className="mt-4 self-end rounded-3xl bg-mono-alternate px-4 py-2 font-bold text-white">
-          Create New Game
+          Save
         </button>
       </div>
     </div>
   );
 };
 
-export default GameCreate;
+export default GameEdit;

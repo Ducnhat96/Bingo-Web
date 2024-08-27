@@ -7,11 +7,13 @@ const DashboardButton = ({
   icon,
   iconAlt,
   containerClasses,
+  onClick,
 }: {
   title: string;
-  icon: string;
-  iconAlt: string;
+  icon?: string;
+  iconAlt?: string;
   containerClasses?: string;
+  onClick?: () => any;
 }) => {
   return (
     <button
@@ -19,8 +21,9 @@ const DashboardButton = ({
         "flex items-center gap-2 rounded-3xl bg-primary px-4 py-2",
         containerClasses
       )}
+      onClick={onClick}
     >
-      <Image src={icon} alt={iconAlt} />
+      {icon && <Image src={icon} alt={iconAlt || ""} />}
       <p className="app-text-title-medium text-white">{title}</p>
     </button>
   );
