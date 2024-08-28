@@ -189,7 +189,7 @@ export default function BingoList({ games }: { games: Game[] }) {
         {table.getRowModel().rows.map((row, rowIndex) => (
           <tr
             key={row.id}
-            className={` ${rowIndex !== table.getRowModel().rows.length - 1 ? "border-b border-gray-200" : ""} transition-all duration-200 hover:rounded-3xl hover:border-none hover:shadow-lg`}
+            className={` ${rowIndex !== table.getRowModel().rows.length - 1 ? "border-b border-gray-200" : ""} hover:shadow-card transition-all duration-200 hover:rounded-3xl hover:border-none`}
           >
             {row.getVisibleCells().map((cell) => (
               <td key={cell.id} className="px-4 py-8 text-center">

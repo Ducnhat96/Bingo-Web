@@ -33,6 +33,7 @@ const config: Config = {
         "mono-alternate": "var(--color-mono-alternate)",
         "mono-primary": "var(--color-mono-primary)",
         secondary: "var(--color-secondary)",
+        "mono-secondary": "var(--color-mono-secondary)",
       },
       backgroundImage: {
         home: "url('/images/home-background.svg')",
@@ -42,6 +43,7 @@ const config: Config = {
         number: "inset 0px 0px 10px 0px rgba(0, 0, 0, 0.60)",
         button:
           "inset -10px -10px 6px 0px rgba(0, 0, 0, 0.10), 0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+        card: "0px 0px 15px 0px rgba(8, 12, 1, 0.25)",
       },
       container: {
         screens: {

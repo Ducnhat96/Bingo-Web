@@ -11,6 +11,7 @@ import {
   Connector,
   useAccount,
   useConnect,
+  useConnectors,
   useDisconnect,
   useSignMessage,
 } from "wagmi";
@@ -19,10 +20,11 @@ import { generateNonce, SiweMessage } from "siwe";
 import { loginApi } from "@/apis";
 import usePersistState from "@/hooks/usePersistState";
 import { StorageKey } from "../../utils";
+import { toast } from "sonner";
 
 interface Auth {
   authToken: string | null;
-  connectWallet: () => void;
+  connectWallet: (connector?: Connector) => void;
   disconnectWallet: () => void;
 }
 
@@ -42,7 +44,7 @@ const initialAuthToken: AuthToken = {
 
 const AuthContext = createContext<Auth>({
   authToken: null,
-  connectWallet: () => {},
+  connectWallet: (connector?: Connector) => {},
   disconnectWallet: () => {},
 });
 
@@ -57,11 +59,24 @@ export const AuthProvider = ({ children }: AuthProviderProps): any => {
   const { address, chainId } = useAccount();
   const { signMessageAsync } = useSignMessage();
 
+  const connectors = useConnectors();
+
   const [mounted, setMounted] = useState(false);
 
   const loginRef = useRef<boolean>(false);
 
-  const connectWallet = async (connector?: Connector) => {
+  const connectWallet = async () => {
+    const isAvacus = window.ethereum?.isAvacus;
+    const isMetaMask = window.ethereum?.isMetaMask;
+    if (!isAvacus && !isMetaMask) {
+      window.open(
+        "https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"
+      );
+      return;
+    }
+    const connector = isAvacus
+      ? injected()
+      : connectors.find((connector) => connector.id === "io.metamask");
     setAuthToken(initialAuthToken);
     connect({ connector: connector ?? injected() });
   };
@@ -78,7 +93,7 @@ export const AuthProvider = ({ children }: AuthProviderProps): any => {
   }, []);
 
   useEffect(() => {
-    if (address && authToken.address && authToken.address !== address) {
+    if (address && authToken?.address && authToken.address !== address) {
       setAuthToken(initialAuthToken);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -86,7 +101,7 @@ export const AuthProvider = ({ children }: AuthProviderProps): any => {
 
   useEffect(() => {
     if (!mounted || loginRef.current || !address || !chainId) return;
-    if (authToken.token && authToken.address === address) return;
+    if (authToken?.token && authToken?.address === address) return;
 
     (async () => {
       const nonce = generateNonce();
@@ -123,12 +138,13 @@ export const AuthProvider = ({ children }: AuthProviderProps): any => {
                 address,
               });
               loginRef.current = false;
-            } catch (error) {
+            } catch (error: any) {
+              toast.error(error.message);
               disconnectWallet();
             }
           },
-          onError(error) {
-            console.log(error, "error");
+          onError(error: any) {
+            toast.error(error.message);
             disconnectWallet();
           },
         }

@@ -1,7 +1,9 @@
-import { SiweMessage } from "siwe";
+import moment from "moment";
 
 export const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
 export const MULTI_AVATAR_KEY = process.env.NEXT_PUBLIC_MULTI_AVATAR_KEY;
+
+export const SWK_ADDRESS = "0xdDFbE9173c90dEb428fdD494cB16125653172919";
 
 export const getAvatarByWalletAddress = (walletAddress?: string): string => {
   if (!walletAddress) return "";
@@ -36,4 +38,14 @@ export const getRewardNameByIndex = (index: number) => {
   const number = index + 1; // Convert index to 1-based
   const suffix = getOrdinalSuffix(number);
   return `${number}${suffix}`;
+};
+
+export const mergedDateTime = (date: Date, time: string) => {
+  if (date && time) {
+    return moment(date)
+      .hour(parseInt(time.split(":")[0], 10))
+      .minute(parseInt(time.split(":")[1], 10))
+      .toISOString();
+  }
+  return "";
 };

@@ -1,11 +1,13 @@
+"use client";
 import React, { type FC } from "react";
 import ConnectScreen from "./ConnectScreen";
 import BingoList from "./BingoList";
 import { EGameStatus } from "./StatusBadge";
 import { CreateNewGameBtn } from "./CreateNewGameBtn";
+import { useAccount } from "wagmi";
 
 const DashboardContainer: FC = () => {
-  const user = false;
+  const { address } = useAccount();
 
   const games = [
     {
@@ -55,7 +57,7 @@ const DashboardContainer: FC = () => {
     },
   ];
 
-  if (!user) {
+  if (!address) {
     return <ConnectScreen />;
   }
 

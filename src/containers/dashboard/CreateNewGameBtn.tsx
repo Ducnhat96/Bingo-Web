@@ -1,22 +1,24 @@
 "use client";
 
-import DashboardButton from "@/components/DashboardButton";
 import React from "react";
 import { IcGameCreateClose, IcPlus } from "../../../public/icons";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { Button } from "@nextui-org/react";
 
 export const CreateNewGameBtn = () => {
   const router = useRouter();
 
   return (
-    <DashboardButton
-      title="Create New Game"
-      icon={IcPlus}
-      iconAlt="create"
-      containerClasses="h-fit"
+    <Button
+      variant="solid"
+      color="primary"
+      startContent={<Image src={IcPlus} alt="plus" />}
+      className="rounded-full"
       onClick={() => router.push("/dashboard/game/create")}
-    />
+    >
+      Create New Game
+    </Button>
   );
 };
 

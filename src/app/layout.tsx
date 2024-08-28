@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "react-responsive-modal/styles.css";
 import Providers from "./provider";
+import { Toaster } from "sonner";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata: Metadata = {
   title: "Avacus - DeBingo",
@@ -17,6 +19,18 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>{children}</Providers>
+        <Toaster />
+        <NextTopLoader
+          color="#71a504"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={true}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #71a504,0 0 5px #71a504"
+        />
       </body>
     </html>
   );

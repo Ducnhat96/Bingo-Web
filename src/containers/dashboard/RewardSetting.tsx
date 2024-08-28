@@ -6,7 +6,7 @@ import { getRewardNameByIndex } from "../../../utils/common";
 
 const RewardSetting = () => {
   const [rewards, setRewards] = useState([
-    { name: "1st", amount: 10, numOfWinners: 0 },
+    { name: "1st", amount: 0, numOfWinners: 0 },
   ]);
 
   const addReward = () => {
@@ -27,7 +27,7 @@ const RewardSetting = () => {
 
   return (
     <>
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex items-center justify-between px-6">
         <h2 className="app-text-headline-medium text-2xl font-semibold">
           Reward Setting
         </h2>
@@ -39,12 +39,12 @@ const RewardSetting = () => {
           Reward
         </button>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex max-h-[60vh] flex-col gap-6 overflow-y-auto p-6">
         {rewards &&
           rewards.map((reward, index) => (
             <div
               key={index}
-              className="flex flex-col gap-2 rounded-2xl p-6 shadow-lg"
+              className="shadow-card flex flex-col gap-2 rounded-2xl p-6"
             >
               <div className="flex justify-between">
                 <h1 className="app-text-headline-small">{reward.name}</h1>

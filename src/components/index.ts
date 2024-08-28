@@ -9,6 +9,8 @@ import Input from "./Input";
 import Select from "./Select";
 import PlayerCardVertical from "./PlayerCardVertical";
 import PlayerCardHorizontal from "./PlayerCardHorizontal";
+import PrizeToken from "./PrizeToken";
+import TotalRewardGame from "./TotalRewardGame";
 
 export {
   PlayerCount,
@@ -22,4 +24,6 @@ export {
   Select,
   PlayerCardVertical,
   PlayerCardHorizontal,
+  PrizeToken,
+  TotalRewardGame,
 };
