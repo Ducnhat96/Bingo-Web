@@ -1,3 +1,8 @@
+import DashboardButton from "@/components/DashboardButton";
+import DistributeRewardsBtn from "@/containers/dashboard/DistributeRewardsBtn";
+import ListOfPlayers from "@/containers/dashboard/ListOfPlayers";
+import StatusBadge, { EGameStatus } from "@/containers/dashboard/StatusBadge";
+import Image from "next/image";
 import React from "react";
 import {
   IcGameEdit,
@@ -5,11 +10,7 @@ import {
   IcGameTrash,
   IcUser,
 } from "../../../../../public/icons";
-import Image from "next/image";
 import { addressShorten } from "../../../../../utils";
-import DashboardButton from "@/components/DashboardButton";
-import StatusBadge, { EGameStatus } from "@/containers/dashboard/StatusBadge";
-import ListOfPlayers from "@/containers/dashboard/ListOfPlayers";
 
 interface GameDetailParams {
   id: string;
@@ -23,7 +24,7 @@ const GameDetail: React.FC<GameDetailProps> = async ({ params }) => {
   const { id } = params;
 
   // Hard code
-  const gameStatus = EGameStatus.AWAIT;
+  const gameStatus = EGameStatus.AWAIT_DISTRIBUTE;
 
   const rewardDetails = [
     { name: "1st ranking", rewards: "1,231", maxwin: "1,231" },
@@ -151,6 +152,7 @@ const GameDetail: React.FC<GameDetailProps> = async ({ params }) => {
   );
 
   const renderOptions = () => {
+    // @ts-ignore
     if (gameStatus === EGameStatus.AWAIT) {
       return (
         <div className="flex items-center">
@@ -170,14 +172,7 @@ const GameDetail: React.FC<GameDetailProps> = async ({ params }) => {
     }
 
     if (gameStatus === EGameStatus.AWAIT_DISTRIBUTE) {
-      return (
-        <div className="flex w-full justify-end">
-          <DashboardButton
-            title="Distribute Rewards"
-            containerClasses="w-fit"
-          />
-        </div>
-      );
+      return <DistributeRewardsBtn />;
     }
 
     return null;
