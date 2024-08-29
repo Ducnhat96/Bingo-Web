@@ -39,3 +39,10 @@ export const initGameData = {
   prizeToken: "",
   nftContractAddress: "",
 };
+
+export interface RewardType {
+  name: string;
+  description?: string;
+  quantity: number;
+  amount: number;
+}

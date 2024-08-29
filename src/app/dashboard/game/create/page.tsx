@@ -5,12 +5,42 @@ import React, { useState } from "react";
 import { CloseNewGameScreenBtn } from "@/containers/dashboard/CreateNewGameBtn";
 import { Button } from "@nextui-org/react";
 import { createNewGameApi } from "@/apis";
-import { CreateGameParams, GameDataType, initGameData } from "@/types";
+import {
+  CreateGameParams,
+  GameDataType,
+  initGameData,
+  RewardType,
+} from "@/types";
 import { toast } from "sonner";
-import { mergedDateTime } from "../../../../../utils";
+import { mergedDateTime, SWK_ADDRESS } from "../../../../../utils";
+import { TotalRewardGame } from "@/components";
+import { useAccount, useReadContract } from "wagmi";
+import { Address, erc721Abi } from "viem";
 
 const GameCreate: React.FC = () => {
+  const { address } = useAccount();
   const [formData, setFormData] = useState<GameDataType>(initGameData);
+
+  const [rewards, setRewards] = useState<RewardType[]>([
+    { name: "1st", amount: 0, quantity: 0 },
+  ]);
+  const totalAmount = rewards.reduce((reward, current) => {
+    const amount = parseFloat(String(current.amount));
+    return reward + amount;
+  }, 0);
+
+  const playerCount = rewards.reduce((reward, current) => {
+    const quantity = current.quantity;
+    return reward + quantity;
+  }, 0);
+
+  const { data: ownerOfTokenERC721 } = useReadContract({
+    abi: erc721Abi,
+    address: formData.nftContractAddress as Address,
+    functionName: "ownerOf",
+  });
+
+  const isOwnerOfTokenERC721 = ownerOfTokenERC721 === address;
 
   const onCreateGame = async () => {
     try {
@@ -18,11 +48,14 @@ const GameCreate: React.FC = () => {
         title: formData?.gameTitle,
         start_at: mergedDateTime(formData.beginDate, formData.beginTime),
         chain_id: Number(Array.from(formData?.network)[0]),
-        prize_token_address: formData.prizeToken,
+        prize_token_address: SWK_ADDRESS,
         nft_token_address: formData.nftContractAddress,
-        prizes: [],
+        prizes: rewards,
       };
       const gameResponse: any = await createNewGameApi(body);
+      if (gameResponse) {
+        toast.success("This game is created successfully.");
+      }
     } catch (e: any) {
       toast.error(e.message);
     }
@@ -41,18 +74,24 @@ const GameCreate: React.FC = () => {
             <h2 className="app-text-headline-medium mb-4 text-2xl font-semibold">
               Game Information
             </h2>
-            <GameCreationForm formData={formData} setFormData={setFormData} />
+            <GameCreationForm
+              formData={formData}
+              setFormData={setFormData}
+              isOwnerOfTokenERC721={isOwnerOfTokenERC721}
+            />
           </div>
 
           <div className="rounded-lg bg-white p-4">
-            <RewardSetting />
+            <RewardSetting rewards={rewards} setRewards={setRewards} />
           </div>
         </div>
+        <TotalRewardGame amount={totalAmount} playerCount={playerCount} />
 
         <Button
           variant="solid"
-          color="primary"
-          className="fixed bottom-10 mt-4 self-end rounded-3xl px-4 py-2 font-bold text-white"
+          color={isOwnerOfTokenERC721 ? "primary" : "default"}
+          isDisabled={!isOwnerOfTokenERC721}
+          className="fixed bottom-10 mt-4 self-end rounded-3xl px-4 py-2 font-bold"
           onClick={() => {
             void onCreateGame();
           }}

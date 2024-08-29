@@ -39,5 +39,5 @@ export {
   IcGameCreateClose,
   IcSearch,
   IcAvacusLogo,
-  IcDisconnect
+  IcDisconnect,
 };

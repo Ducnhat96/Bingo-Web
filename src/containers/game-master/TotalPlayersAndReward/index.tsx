@@ -1,9 +1,6 @@
 "use client";
 import React, { type FC } from "react";
-import Image from "next/image";
-import { BgCountDownTime } from "../../../../public/images";
-import { PlayerCount, RewardValue } from "@/components";
-import CountDownBoard from "@/components/CountDownBoard";
+import { CountDownBoard, PlayerCount, RewardValue } from "@/components";
 
 interface TotalPlayersAndRewardProps {
   playerCount: number;

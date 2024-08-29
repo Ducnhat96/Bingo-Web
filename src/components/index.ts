@@ -11,6 +11,7 @@ import PlayerCardVertical from "./PlayerCardVertical";
 import PlayerCardHorizontal from "./PlayerCardHorizontal";
 import PrizeToken from "./PrizeToken";
 import TotalRewardGame from "./TotalRewardGame";
+import CountDownBoard from "./CountDownBoard";
 
 export {
   PlayerCount,
@@ -26,4 +27,5 @@ export {
   PlayerCardHorizontal,
   PrizeToken,
   TotalRewardGame,
+  CountDownBoard,
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, PrizeToken, TotalRewardGame } from "@/components";
+import { Input, PrizeToken } from "@/components";
 import Modal from "react-modal";
 import Image from "next/image";
 import React, { FC, useCallback, useRef, useState } from "react";
@@ -12,6 +12,9 @@ import {
 import { DatePickerModal, TimePickerModal } from "@/components/DateTimePicker";
 import { chainList } from "../../../utils/chains";
 import SelectNetwork from "@/components/SelectChain";
+import { useAccount, useReadContract } from "wagmi";
+import { erc721Abi } from "viem";
+import clsx from "clsx";
 
 // Set the app element for accessibility
 Modal.setAppElement("#dashboard_container");
@@ -20,11 +23,13 @@ const GAME_TITLE_MAX_CHAR = 50;
 interface GameCreationFormProps {
   formData: any;
   setFormData: (formData: any) => void;
+  isOwnerOfTokenERC721: boolean;
 }
 
 const GameCreationForm: FC<GameCreationFormProps> = ({
   formData,
   setFormData,
+  isOwnerOfTokenERC721,
 }) => {
   const [isTimeModalVisible, setTimeModalVisible] = useState(false);
   const [isDateModalVisible, setDateModalVisible] = useState(false);
@@ -141,6 +146,7 @@ const GameCreationForm: FC<GameCreationFormProps> = ({
         <PrizeToken />
       </div>
 
+      <p className="app-text-headline-medium">Join Condition</p>
       <div className="flex gap-6">
         <div className="flex flex-col items-start justify-start gap-2">
           <div className="app-text-body-1">Network</div>
@@ -168,7 +174,12 @@ const GameCreationForm: FC<GameCreationFormProps> = ({
       <p className="app-text-body-small text-secondary">
         The players require to own this NFT to join this game
       </p>
-      <div className="flex items-center gap-3 rounded-2xl border-2 border-dashed border-gray-300 p-4">
+      <div
+        className={clsx(
+          "flex items-center gap-3 rounded-2xl border-2 border-dashed p-4",
+          isOwnerOfTokenERC721 ? "border-gray-300" : "border-dangerous"
+        )}
+      >
         <Image src={IcGameCreateNft} width={50} height={50} alt="nft icon" />
         <div>
           <div className="text-gray-500">Your NFT</div>
@@ -177,7 +188,6 @@ const GameCreationForm: FC<GameCreationFormProps> = ({
           </div>
         </div>
       </div>
-      <TotalRewardGame amount={1213} playerCount={12} />
     </div>
   );
 };

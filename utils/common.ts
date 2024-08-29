@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment from "moment-timezone";
 
 export const WEBSITE_URL = process.env.NEXT_PUBLIC_WEBSITE_URL;
 export const MULTI_AVATAR_KEY = process.env.NEXT_PUBLIC_MULTI_AVATAR_KEY;
@@ -41,11 +41,9 @@ export const getRewardNameByIndex = (index: number) => {
 };
 
 export const mergedDateTime = (date: Date, time: string) => {
-  if (date && time) {
-    return moment(date)
-      .hour(parseInt(time.split(":")[0], 10))
-      .minute(parseInt(time.split(":")[1], 10))
-      .toISOString();
-  }
-  return "";
+  const m = moment(date);
+  m.tz("Asia/Singapore"); // Set the timezone
+  m.hour(moment(time, "HH:mm").hour());
+  m.minute(moment(time, "HH:mm").minute());
+  return m.format("YYYY-MM-DDTHH:mm:ss.SSSZ");
 };

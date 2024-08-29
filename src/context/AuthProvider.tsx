@@ -66,9 +66,9 @@ export const AuthProvider = ({ children }: AuthProviderProps): any => {
   const loginRef = useRef<boolean>(false);
 
   const connectWallet = async () => {
-    const isAvacus = window.ethereum?.isAvacus;
-    const isMetaMask = window.ethereum?.isMetaMask;
-    if (!isAvacus && !isMetaMask) {
+    const isAvacus = window?.ethereum?.isAvacus;
+    const isMetaMask = window?.ethereum?.isMetaMask;
+    if (!isAvacus && !isMetaMask && typeof window !== "undefined") {
       window.open(
         "https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"
       );
