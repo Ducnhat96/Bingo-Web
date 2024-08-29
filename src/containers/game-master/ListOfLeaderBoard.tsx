@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import {
   createColumnHelper,
   flexRender,
@@ -19,10 +18,23 @@ type Player = {
 
 const columnHelper = createColumnHelper<Player>();
 
-const ListOfLeaderBoard = ({ players }: { players: Player[] }) => {
+const ListOfLeaderBoard = ({
+  players,
+  avatarSize,
+  hideRewardIcon,
+  headerBlackList = [],
+}: {
+  players: Player[];
+  avatarSize?: number;
+  hideRewardIcon?: boolean;
+  headerBlackList?: string[];
+}) => {
   const columns = [
     columnHelper.accessor("id", {
-      header: () => <div className="text-center">Rank</div>,
+      header: () =>
+        headerBlackList.includes("id") ? null : (
+          <div className="text-center">Rank</div>
+        ),
       cell: (info) => (
         <div className="app-text-body-medium text-center">
           {info.getValue()}
@@ -30,22 +42,29 @@ const ListOfLeaderBoard = ({ players }: { players: Player[] }) => {
       ),
     }),
     columnHelper.accessor("name", {
-      header: () => <div className="text-start">Players</div>,
+      header: () =>
+        headerBlackList.includes("name") ? null : (
+          <div className="text-start">Players</div>
+        ),
       cell: (info) => (
         <div className="flex items-start justify-start">
           <PlayerCardHorizontal
             avatarUrl={info.row.original.img}
             name={info.getValue()}
             address={"0xB7d550FA8A29667c6Be4bFD56a867a67e7c8A56f"}
+            imgSize={avatarSize}
           />
         </div>
       ),
     }),
     columnHelper.accessor("address", {
-      header: () => <div className="pr-4 text-end">Reward</div>,
+      header: () =>
+        headerBlackList.includes("address") ? null : (
+          <div className="pr-4 text-end">Reward</div>
+        ),
       cell: (info) => (
         <div className="flex items-start justify-start">
-          <RewardValue amount={100} />
+          <RewardValue amount={100} hideRewardIcon={hideRewardIcon} />
         </div>
       ),
     }),
@@ -67,10 +86,12 @@ const ListOfLeaderBoard = ({ players }: { players: Player[] }) => {
           >
             {headerGroup.headers.map((header: any) => (
               <th key={header.id} className="px-4 py-2">
-                {flexRender(
-                  header.column.columnDef.header,
-                  header.getContext()
-                )}
+                {header.isPlaceholder
+                  ? null
+                  : flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
               </th>
             ))}
           </tr>

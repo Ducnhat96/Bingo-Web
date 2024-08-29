@@ -46,9 +46,17 @@
   --font-body-large-size: 16px;
   --font-body-large-line-height: 24px;
 
+  --font-body-small-weight: 300;
+  --font-body-small-size: 12px;
+  --font-body-small-line-height: 16px;
+
+  --font-title-large-weight: 600;
+  --font-title-large-size: 22px;
+  --font-title-large-line-height: 28px;
+
   --font-title-medium-weight: 500;
-  --font-title-medium-size: 16;
-  --font-title-medium-line-height: 24;
+  --font-title-medium-size: 16px;
+  --font-title-medium-line-height: 24px;
 
   --font-body-medium-weight: 300;
   --font-body-medium-size: 14px;
@@ -166,14 +174,27 @@ button:focus {
   font-weight: 700;
   font-style: normal;
 }
+
 .customModal {
   background: transparent !important;
   min-width: 500px;
   width: 100%;
   box-shadow: none !important;
 }
+
+.customPlayerModal {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+
 .customOverlay {
   background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.customPlayerOverlay {
+  background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
 .customBgOverlay {
@@ -187,6 +208,7 @@ button:focus {
     font-size: var(--font-display-small-size);
     line-height: var(--font-display-small-line-height);
   }
+
   .app-text-display-medium {
     font-weight: var(--font-label-medium-weight);
     font-size: var(--font-display-medium-size);
@@ -241,6 +263,13 @@ button:focus {
     font-size: var(--font-header-large-size);
     line-height: var(--font-header-large-line-height);
   }
+
+  .app-text-title-large {
+    font-weight: var(--font-title-large-weight);
+    font-size: var(--font-title-large-size);
+    line-height: var(--font-title-large-line-height);
+  }
+
   .app-text-title-medium {
     font-weight: var(--font-title-medium-weight);
     font-size: var(--font-title-medium-size);
