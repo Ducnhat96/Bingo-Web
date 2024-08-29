@@ -18,6 +18,7 @@ import IcGameCreateClose from "./ic-gamecreate-close.svg";
 import IcSearch from "./ic-search.svg";
 import IcAvacusLogo from "./ic-avacus-logo.svg";
 import IcDisconnect from "./ic-disconnect.svg";
+import IcDashboardCheck from "./ic-dashboard-check.svg";
 
 export {
   IcUser,
@@ -40,4 +41,5 @@ export {
   IcSearch,
   IcAvacusLogo,
   IcDisconnect,
+  IcDashboardCheck,
 };

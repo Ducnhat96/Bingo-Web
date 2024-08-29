@@ -17,6 +17,7 @@ const config: Config = {
         primary50: "var(--color-primary-50)",
         primary25: "var(--color-primary-25)",
         primary10: "var(--color-primary-10)",
+        primary5: "var(--color-primary-5)",
         accent: "var(--color-accent)",
         table: "var(--color-table)",
         information: "var(--color-information)",
