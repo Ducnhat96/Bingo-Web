@@ -17,6 +17,7 @@ import IcGameCreateCalendar from "./ic-gamecreate-calendar.svg";
 import IcGameCreateClose from "./ic-gamecreate-close.svg";
 import IcSearch from "./ic-search.svg";
 import IcAvacusLogo from "./ic-avacus-logo.svg";
+import IcDisconnect from "./ic-disconnect.svg";
 
 export {
   IcUser,
@@ -38,4 +39,5 @@ export {
   IcGameCreateClose,
   IcSearch,
   IcAvacusLogo,
+  IcDisconnect
 };
