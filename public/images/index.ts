@@ -7,6 +7,8 @@ import AvacusLogo from "./avacus-logo.svg";
 import ImgTwoSticks from "./img-two-sticks.svg";
 import BgOverlayModal from "./bg-overlay-modal.svg";
 import ImgEndGame from "./img-end-game.svg";
+import ImgPlayerLeaderboard from "./img-player-leaderboard.svg";
+import ImgNotSelfBingo from "./img-not-self-bingo.svg";
 
 export {
   BgHome,
@@ -18,4 +20,6 @@ export {
   ImgTwoSticks,
   BgOverlayModal,
   ImgEndGame,
+  ImgPlayerLeaderboard,
+  ImgNotSelfBingo,
 };

@@ -8,6 +8,7 @@ interface PlayerCardHorizontalProps {
   name: string;
   address: string;
   isBordered?: boolean;
+  imgSize?: number;
 }
 
 const PlayerCardHorizontal: React.FC<PlayerCardHorizontalProps> = ({
@@ -15,6 +16,7 @@ const PlayerCardHorizontal: React.FC<PlayerCardHorizontalProps> = ({
   name,
   address,
   isBordered = false,
+  imgSize = 64,
 }) => {
   return (
     <div
@@ -27,8 +29,8 @@ const PlayerCardHorizontal: React.FC<PlayerCardHorizontalProps> = ({
         loading="lazy"
         src={avatarUrl}
         alt="user"
-        width={64}
-        height={64}
+        width={imgSize}
+        height={imgSize}
         className="rounded-full"
       />
       <div className="flex flex-col gap-2">

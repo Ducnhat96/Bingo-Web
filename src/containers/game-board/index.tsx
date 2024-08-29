@@ -2,21 +2,45 @@ import React from "react";
 import { numbersMap } from "../../../utils/number";
 import { Square, Circle } from "@/components";
 import { useGameMater } from "@/context/GameMasterProvider";
+import clsx from "clsx";
 
 type ChessBoardProps = {
   rows: number;
   columns: number;
+  circleSize?: number;
+  containerClasses?: string;
+  customBtn?: React.ReactNode;
 };
 
-const GameBoard: React.FC<ChessBoardProps> = ({ rows, columns }) => {
+const GameBoard: React.FC<ChessBoardProps> = ({
+  rows,
+  columns,
+  circleSize,
+  containerClasses,
+  customBtn,
+}) => {
   const { allActiveNumbers } = useGameMater();
-  const squares = Array.from({ length: rows * columns }, (_, index) => ({
-    id: index,
-    isLight: (Math.floor(index / columns) + index) % 2 === 0,
-  }));
+  const squares = Array.from({ length: rows * columns }, (_, index) => {
+    const row = Math.floor(index / columns);
+    const col = index % columns;
+
+    // Check if rows * cols value is odd number
+    const isOdd = (rows * columns) % 2 !== 0;
+    const isLight = isOdd ? (row + col) % 2 !== 0 : (row + col) % 2 === 0;
+
+    return {
+      id: index,
+      isLight,
+    };
+  });
 
   return (
-    <section className="flex max-w-full flex-col justify-center rounded-2xl bg-accent px-2 py-3.5">
+    <section
+      className={clsx(
+        "flex max-w-full flex-col justify-center rounded-2xl bg-accent px-2 py-3.5",
+        containerClasses
+      )}
+    >
       <div className="flex w-full flex-1 flex-col overflow-hidden rounded-2xl border border-accent max-md:max-w-full">
         {Array.from({ length: rows }, (_, rowIndex) => (
           <div
@@ -31,12 +55,14 @@ const GameBoard: React.FC<ChessBoardProps> = ({ rows, columns }) => {
                     key={square.id}
                     isShow={allActiveNumbers.includes(square.id + 1)}
                     img={numbersMap[square.id + 1]}
+                    size={circleSize}
                   />
                 </Square>
               ))}
           </div>
         ))}
       </div>
+      {customBtn}
     </section>
   );
 };

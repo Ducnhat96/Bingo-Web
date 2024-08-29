@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import { IcGift, IcSWK, IcUser } from "../../public/icons";
+import { IcGift, IcSWK } from "../../public/icons";
 
 interface RewardValueProps {
   amount: number;
   fontSize?: number;
   imgSize?: number;
   color?: string;
+  hideRewardIcon?: boolean;
 }
 
 const RewardValue: React.FC<RewardValueProps> = ({
@@ -14,16 +15,19 @@ const RewardValue: React.FC<RewardValueProps> = ({
   fontSize = 14,
   color = "#45493F",
   imgSize = 24,
+  hideRewardIcon = false,
 }) => {
   return (
     <div className="flex w-full items-center justify-center gap-2">
-      <Image
-        loading="lazy"
-        src={IcGift}
-        alt="Gift"
-        width={imgSize}
-        height={imgSize}
-      />
+      {!hideRewardIcon && (
+        <Image
+          loading="lazy"
+          src={IcGift}
+          alt="Gift"
+          width={imgSize}
+          height={imgSize}
+        />
+      )}
       <span
         style={{
           fontSize,
