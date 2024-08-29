@@ -2,10 +2,12 @@ import React from "react";
 import TotalRewards from "./TotalRewards";
 import PlayerList from "./PlayerList";
 import { PlayerCount } from "@/components";
+import clsx from "clsx";
 
 interface ListOfPlayersProps {
   playerCount: number;
   totalRewards: number;
+  sectionClasses?: string;
 }
 
 const players = [
@@ -50,9 +52,10 @@ const players = [
 const ListOfPlayers: React.FC<ListOfPlayersProps> = ({
   playerCount,
   totalRewards,
+  sectionClasses,
 }) => {
   return (
-    <section className="flex h-full w-full flex-col">
+    <section className={clsx("flex h-full w-full flex-col", sectionClasses)}>
       <div className="flex h-full w-full flex-col justify-center overflow-hidden rounded-2xl bg-accent px-2 py-4">
         <header className="flex w-full max-w-full flex-col gap-2 self-center text-center">
           <p className="app-text-header-large">List Of Players</p>

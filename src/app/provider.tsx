@@ -20,7 +20,7 @@ const Providers: FC<ProvidersProps> = ({ children }) => {
   const pathname = usePathname();
 
   const classes = clsx({
-    "bg-home bg-cover bg-primary": pathname !== "/dashboard",
+    "bg-home bg-cover bg-center bg-primary": pathname !== "/dashboard",
     "bg-white": pathname === "/dashboard",
   });
 
